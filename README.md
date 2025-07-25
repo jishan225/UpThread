@@ -1,3 +1,4 @@
+<img width="1728" height="914" alt="Screenshot 2025-07-25 115606" src="https://github.com/user-attachments/assets/1d03bf70-f5b3-44fd-a2e3-8803242c08ec" />
 UpThread is a modern, community-driven blogging and discussion platform developed with core web technologies, following REST and RESTful API principles. It leverages Express.js and Node.js for backend functionality, EJS (Embedded JavaScript) for rendering dynamic content, and implements the full suite of CRUD (Create, Read, Update, Delete) operations for flexible post management.
 
 Key Features
