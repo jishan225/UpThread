@@ -1,0 +1,401 @@
+/* Reset some defaults */
+body, h1, h3, h4, a, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #eef2f3 0%, #8ec5fc 100%);
+  color: #2b2d42;
+  min-height: 100vh;
+  padding: 30px 0;
+}
+
+h1 {
+  text-align: center;
+  color: #264653;
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  text-shadow: 0 2px 16px #eee5;
+}
+
+/* Blog posts container */
+.post {
+  background: #ffffffcc;
+  margin: 24px auto;
+  max-width: 500px;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(44, 62, 80, 0.089), 0 1.5px 10px rgba(2,0,36,0.04);
+  padding: 26px 36px 22px 36px;
+  transition: transform 0.20s, box-shadow 0.2s;
+  position: relative;
+}
+.post:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 12px 38px rgba(34, 85, 120, 0.13);
+}
+
+/* Username styling */
+.username {
+  color: #0077b6;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.content {
+  font-size: 1.1rem;
+  color: #22223b;
+  margin-bottom: 22px;
+  font-weight: 400;
+}
+
+/* Link styling */
+a {
+  display: inline-block;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 7px 18px;
+  background: #e9f5fe;
+  color: #0060df;
+  box-shadow: 0 1.5px 10px #e4e9f785;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+a:hover, a:focus {
+  background: #90caf9;
+  color: #114677;
+  box-shadow: 0 4px 18px #a0c4ff64;
+  text-decoration: underline;
+}
+
+/* Button styling */
+button {
+  background: linear-gradient(120deg, #ff5e62 0%, #ffc371 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 1.5px 10px #f062927a;
+  transition: background 0.15s, transform 0.15s;
+}
+button:hover, button:focus {
+  background: linear-gradient(120deg, #e36263 0%, #ffd56f 100%);
+  transform: scale(1.08);
+  outline: none;
+}
+
+/* Delete form styling: inline with links */
+form {
+  display: inline;
+}
+
+@media (max-width: 600px) {
+  .post {
+    padding: 18px 8vw;
+    max-width: 90vw;
+  }
+  h1 {
+    font-size: 1.55rem;
+  }
+  .username {
+    font-size: 1.07rem;
+  }
+  .content {
+    font-size: 1rem;
+  }
+  a, button {
+    padding: 6px 10px;
+    font-size: 0.98rem;
+  }
+}
+
+/* Create post link styling */
+a[href$="/posts/new"] {
+  display: block;
+  font-size: 1.1rem;
+  margin: 50px auto 0 auto;
+  max-width: 240px;
+  text-align: center;
+  background: linear-gradient(90deg, #4fd1c5, #81e6d9);
+  color: #16697a;
+  font-weight: bold;
+  padding: 13px 0;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px #94d2bd5e;
+  transition: all 0.2s;
+}
+a[href$="/posts/new"]:hover, a[href$="/posts/new"]:focus {
+  background: linear-gradient(90deg, #38b2ac, #63b3ed);
+  color: #fff;
+  transform: scale(1.05);
+}
+/* Subtle fade-in effect */
+.post {
+  opacity: 0;
+  animation: fadeIn 0.65s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+
+
+
+/* -- New Post Form Styles -- */
+form {
+  background: #ffffffcc;
+  max-width: 430px;
+  margin: 40px auto 0 auto;
+  padding: 36px 30px 30px 30px;
+  border-radius: 18px;
+  box-shadow: 0 6px 28px #8ec5fc44, 0 1.5px 10px #e4e9f785;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeIn 0.6s forwards;
+}
+
+input[name="username"], textarea[name="content"] {
+  font-family: inherit;
+  font-size: 1.08rem;
+  border: 1.6px solid #90caf9;
+  border-radius: 7px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border 0.18s, box-shadow 0.18s;
+  background: #f0fcfe;
+  color: #1b263b;
+  box-shadow: 0 1.5px 10px #e9f5fe32;
+  margin-bottom: 0;
+}
+
+input[name="username"]:focus,
+textarea[name="content"]:focus {
+  border: 1.9px solid #4895ef;
+  box-shadow: 0 4px 16px #a0c4ff45;
+  background: #e9f5fe;
+}
+
+textarea[name="content"] {
+  resize: vertical;
+  min-height: 122px;
+  max-height: 320px;
+  font-size: 1.08rem;
+}
+
+button[type="submit"], form button {
+  background: linear-gradient(120deg, #4fd1c5, #63b3ed);
+  color: #173140;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 2px 15px #94d2bd5f;
+  margin-top: 12px;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+button[type="submit"]:hover,
+form button:hover,
+button[type="submit"]:focus,
+form button:focus {
+  background: linear-gradient(120deg, #38b2ac, #4895ef 100%);
+  color: #fff;
+  transform: scale(1.06);
+  outline: none;
+}
+
+::placeholder {
+  color: #8d99ae;
+  opacity: 1;
+  font-style: italic;
+}
+
+/* Remove input outline on click for accessibility */
+input:focus, textarea:focus {
+  outline: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  form {
+    max-width: 95vw;
+    padding: 18px 3vw 16px 3vw;
+  }
+  input[name="username"], textarea[name="content"] {
+    font-size: 0.99rem;
+    padding: 9px 8px;
+  }
+  button[type="submit"], form button {
+    font-size: 1rem;
+    padding: 9px 0;
+  }
+}
+
+/* edit page */
+/* --- Edit Post Form Styles --- */
+.edit-form-wrapper {
+  max-width: 430px;
+  margin: 40px auto 0 auto;
+  background: #ffffffcc;
+  border-radius: 18px;
+  box-shadow: 0 6px 28px #8ec5fc44, 0 1.5px 10px #e4e9f785;
+  padding: 36px 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeIn 0.6s forwards;
+}
+.edit-form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #264653;
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+}
+.edit-form-wrapper p {
+  color: #1b263b;
+  margin-bottom: 4px;
+  font-size: 1.07rem;
+}
+.edit-form-wrapper textarea[name="content"] {
+  font-family: inherit;
+  font-size: 1.08rem;
+  border: 1.6px solid #90caf9;
+  border-radius: 7px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border 0.18s, box-shadow 0.18s;
+  background: #f0fcfe;
+  color: #1b263b;
+  min-height: 120px;
+  resize: vertical;
+  margin-bottom: 0;
+  box-shadow: 0 1.5px 10px #e9f5fe32;
+}
+.edit-form-wrapper textarea:focus {
+  border: 1.9px solid #4895ef;
+  box-shadow: 0 4px 16px #a0c4ff45;
+  background: #e9f5fe;
+}
+
+/* Stylish submit button */
+.edit-form-wrapper button[type="submit"] {
+  background: linear-gradient(120deg, #4fd1c5, #63b3ed);
+  color: #173140;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  margin-top: 12px;
+  box-shadow: 0 2px 15px #94d2bd5f;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.edit-form-wrapper button[type="submit"]:hover,
+.edit-form-wrapper button[type="submit"]:focus {
+  background: linear-gradient(120deg, #38b2ac, #4895ef 100%);
+  color: #fff;
+  transform: scale(1.06);
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .edit-form-wrapper {
+    max-width: 95vw;
+    padding: 18px 3vw 16px 3vw;
+  }
+  .edit-form-wrapper h2 {
+    font-size: 1.15rem;
+  }
+  .edit-form-wrapper p {
+    font-size: .98rem;
+  }
+  .edit-form-wrapper textarea {
+    font-size: .97rem;
+    padding: 8px 6px;
+  }
+  .edit-form-wrapper button[type="submit"] {
+    font-size: 1rem;
+    padding: 9px 0;
+  }
+}
+/* --- Show Page Styles --- */
+
+.show-wrapper {
+  max-width: 600px;
+  margin: 40px auto 0 auto;
+  background: #ffffffdd;
+  padding: 38px 36px 32px 36px;
+  border-radius: 20px;
+  box-shadow: 0 7px 25px #8ec5fc42, 0 1.5px 10px #e4e9f785;
+  animation: fadeIn 0.7s forwards;
+}
+.show-wrapper h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 2rem;
+  color: #264653;
+  letter-spacing: 1.5px;
+}
+.show-wrapper p {
+  color: #1b263b;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* Make use of the existing .post card for the post */
+.show-wrapper .post {
+  margin: 0 auto;
+  box-shadow: 0 4px 16px #90caf93a;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .show-wrapper {
+    padding: 16px 5vw 10px 5vw;
+    max-width: 98vw;
+  }
+  .show-wrapper h2 {
+    font-size: 1.33rem;
+  }
+  .show-wrapper p {
+    font-size: 1.02rem;
+  }
+}
+
+/* Optional: A back link for UX improvement */
+.back-link {
+  display: block;
+  text-align: center;
+  margin: 25px auto 0 auto;
+  max-width: 130px;
+  background: #e9f5fe;
+  padding: 9px 0;
+  border-radius: 7px;
+  color: #0060df;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 1.5px 8px #e9f5fe54;
+  transition: background .2s, color .2s, transform .2s;
+}
+.back-link:hover, .back-link:focus {
+  background: #90caf9;
+  color: #264653;
+  transform: scale(1.04);
+}
